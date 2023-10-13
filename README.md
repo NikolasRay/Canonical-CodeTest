@@ -2,7 +2,7 @@
 
 ## Project setup
 ```
-npm install
+npm install && npm build-css
 ```
 
 ### Compiles and hot-reloads for development
