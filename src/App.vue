@@ -1,26 +1,46 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div v-if="data">
+    <div class="row container">
+      <div v-for="content in data" :key="content.id" class="col-4 p-card">
+        <card :contents="content"></card>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import axios from "axios";
+import card from "./components/Card-Comp.vue";
+import "../dist/style.css";
+import { useRouter } from "vue-router";
 export default {
-  name: 'App',
+  name: "App",
+  data() {
+    return {
+      data: null,
+    };
+  },
+
   components: {
-    HelloWorld
-  }
-}
+    card,
+  },
+  setup() {
+    const router = useRouter();
+    return { router };
+  },
+  methods: {
+    async getData() {
+      const data = await axios.get(
+        "https://people.canonical.com/~anthonydillon/wp-json/wp/v2/posts.json"
+      );
+      this.data = await data.data;
+      console.log(this.data);
+    },
+  },
+  mounted() {
+    this.getData();
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
