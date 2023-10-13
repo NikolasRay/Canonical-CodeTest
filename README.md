@@ -2,12 +2,12 @@
 
 ## Project setup
 ```
-npm install && npm build-css
+npm install 
 ```
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+npm run build-css && npm run serve
 ```
 
 ### Customize configuration
