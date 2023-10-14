@@ -1,9 +1,12 @@
 <template>
   <div v-if="data">
-    <div class="row container">
-      <div v-for="content in data" :key="content.id" class="col-4 p-card">
-        <card :contents="content"></card>
-      </div>
+    <div class="row u-equal-height u-clearfix">
+      <card
+        v-for="content in data"
+        :key="content.id"
+        class="col-4 col-medium-2 blog-p-card--post p-card"
+        :contents="content"
+      ></card>
     </div>
   </div>
 </template>
@@ -34,7 +37,6 @@ export default {
         "https://people.canonical.com/~anthonydillon/wp-json/wp/v2/posts.json"
       );
       this.data = await data.data;
-      console.log(this.data);
     },
   },
   mounted() {
