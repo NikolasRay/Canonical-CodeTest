@@ -59,7 +59,6 @@ export default {
   mounted() {
     this.formatDate(this.contents.date);
     this.findTopic(this.contents);
-    console.log(this.contents);
   },
   methods: {
     formatDate(date) {
