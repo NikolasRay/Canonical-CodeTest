@@ -8,7 +8,7 @@
     <hr class="u-sv1-no-margin" />
     <div class="blog-p-card__content">
       <div class="u-crop--16-9">
-        <a :href="contents.link">
+        <a :href="contents.link" target="_blank">
           <div class="lazyload" data-noscript>
             <img
               loading="lazy"
